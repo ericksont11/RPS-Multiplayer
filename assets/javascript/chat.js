@@ -91,7 +91,7 @@ $('#user').keypress(function(event) {
     hold = username;
     $("#user").hide()
     $("#comment").show()
-    $("#title").html("You're chatting as " + username)
+    $("#title").html("Hey " + username + "! Choose Rock, Paper, or Scissors from the green box!")
     if (player1 === "") {
         $("#userChoice").css("background-color", "green")
         database.ref("/talking").set({
@@ -138,8 +138,6 @@ database.ref("/game").onDisconnect().set({
 });
 
 $("#rock").on("click", function() {
-    console.log(username)
-    console.log(player1)
     if (hold === player1) {
         selected = 1
         database.ref("/game").set({
@@ -153,8 +151,6 @@ $("#rock").on("click", function() {
     }
 })
 $("#paper").on("click", function() {
-    console.log(username)
-    console.log(player1)
     if (hold === player1) {
         selected = 2
         database.ref("/game").set({
@@ -168,8 +164,6 @@ $("#paper").on("click", function() {
     }
 })
 $("#scissors").on("click", function() {
-    console.log(username)
-    console.log(player1)
     if (hold === player1) {
         selected = 3
         database.ref("/game").set({
@@ -183,8 +177,6 @@ $("#scissors").on("click", function() {
     }
 })
 $("#rock2").on("click", function() {
-    console.log(hold)
-    console.log(player2)
     if (hold === player2) {
         selected2 = 1
         database.ref("/game").set({
@@ -198,8 +190,6 @@ $("#rock2").on("click", function() {
     }
 })
 $("#paper2").on("click", function() {
-    console.log(hold)
-    console.log(player2)
     if (hold === player2) {
         selected2 = 2
         database.ref("/game").set({
@@ -213,8 +203,6 @@ $("#paper2").on("click", function() {
     }
 })
 $("#scissors2").on("click", function() {
-    console.log(hold)
-    console.log(player2)
     if (hold === player2) {
         selected2 = 3
         database.ref("/game").set({
@@ -287,8 +275,8 @@ function displayWinner () {
             $("#scissors2").css("display", "inline-block")
             $("#paper2").css("display", "inline-block")
             $("#title").html("You're chatting as " + hold)
-            $("#one-wins").html("Wins: " + oneWins)
-            $("#two-wins").html("WIns: " + twoWins)
+            $("#one-wins").html("WINS: " + oneWins)
+            $("#two-wins").html("WINS: " + twoWins)
         },3000)
 
         
